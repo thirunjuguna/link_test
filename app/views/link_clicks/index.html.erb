@@ -1,0 +1,70 @@
+<div class="w-full">
+   <nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+         <a href="/" class="flex items-center space-x-3 rtl:space-x-reverse">
+         <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Link Clicks Tracker</span>
+         </a>
+         <div class="items-center justify-between hiddean w-full md:flex md:w-auto md:order-1" id="navbar-sticky">
+         </div>
+      </div>
+   </nav>
+       <div class="inline-block justify-between items-center">
+    <h1 class="font-bold text-4xl">SUMMARY</h1>
+    
+    </div>
+    <ul class="flex flex-wrap text-gray-900 dark:text-white">
+        <li>
+        <a href="#" class="block m-4 max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">TOTAL CLICKS</h5>
+            <p class="font-normal text-gray-700 dark:text-gray-400"><%=@total_clicks%></p>
+        </a>
+        </li>
+        <li>
+        <a href="#" class="m-3 block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">MOST CLICKED URL</h5>
+            <p class="font-normal text-gray-700 dark:text-gray-400"><%=@most_clicked_url%></p>
+        </a>
+        </li>
+        <li>
+        <a href="#" class=" m-4 block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700">
+            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">LEAST CLICKED URL</h5>
+            <p class="font-normal text-gray-700 dark:text-gray-400"><%=@least_clicked_url%></p>
+        </a>
+        </li>
+    </ul>
+
+    <div class="inline-block justify-between items-center">
+    <h1 class="font-bold text-4xl">TOP 5 MOST CLICKED URLS</h1>
+    
+    </div>
+    <table class="m-2 min-w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <tr>
+            <th scope="col" class="px-5 py-2">
+                URL
+            </th>
+            <th scope="col" class="px-5 py-2">
+                Clicks
+            </th>
+            <th scope="col" class="px-5 py-2">
+                Last Clicked At
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @top_5_clicked_urls.each do |link|%>
+        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+            <th scope="row" class="px-6 py-3 font-medium text-gray-900 whitespace-nowrap dark:text-white">
+                <%= link.url%>
+            </th>
+            <td class="px-6 py-3">
+                <%=link.clicks_count%>
+            </td>
+            <td class="px-6 py-3">
+                <%=link.last_clicked%>
+            </td>
+        </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>
